@@ -1,2 +1,2 @@
 # spam-classifier
-Practice implementing a spam classifier with SVM and Gaussian kernel in python. Tools used: Linear SVC, SVC, StandardScalar, validation_curve, GridSearchCV. 
+Practice implementing a spam classifier with SVM and Gaussian kernel in python. Tools used: Linear SVC, SVC, StandardScalar, validation_curve, GridSearchCV. Data from week 7 of Machine Learning on Coursera. 
