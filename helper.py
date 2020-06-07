@@ -14,7 +14,6 @@ vocabList = {}
 for i in np.arange(0, len(str), 2):
     vocabList[str[i + 1]] = str[i]
 
-
 def process_email(email_contents):
     word_indices = []
 
@@ -55,7 +54,7 @@ def process_email(email_contents):
 
 def email_features(word_indices):
     features = np.zeros(len(vocabList))
-    
+
     for i in range(len(word_indices)):
         features[word_indices[i] - 1] = 1
     return features
