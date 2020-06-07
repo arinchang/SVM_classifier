@@ -5,18 +5,18 @@ import re
 from nltk.stem import PorterStemmer
 
 
+# set up vocabList, map word stem to index
+f = open('vocab.txt', "r")
+contents = f.read()
+str = contents.split()
+vocabList = {}
+
+for i in np.arange(0, len(str), 2):
+    vocabList[str[i + 1]] = str[i]
+
 
 def process_email(email_contents):
     word_indices = []
-
-    # set up vocabList, map word stem to index
-    f = open('vocab.txt', "r")
-    contents = f.read()
-    str = contents.split()
-    vocabList = {}
-
-    for i in np.arange(0, len(str), 2):
-        vocabList[str[i + 1]] = str[i]
 
     # preprocess email
     email_contents = email_contents.lower()
@@ -53,8 +53,9 @@ def process_email(email_contents):
     return word_indices
 
 
-
-
-
-if __name__ == '__main__':
-    process_email('hi')
+def email_features(word_indices):
+    features = np.zeros(len(vocabList))
+    
+    for i in range(len(word_indices)):
+        features[word_indices[i] - 1] = 1
+    return features
